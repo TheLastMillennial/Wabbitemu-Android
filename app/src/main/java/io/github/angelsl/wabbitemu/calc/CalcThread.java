@@ -73,7 +73,7 @@ public class CalcThread extends Thread {
                 }
             } else {
                 mDifference += TPF;
-                Log.d("Wabbitemu", "Frame skip");
+                // Log.d("Wabbitemu", "Frame skip");
             }
 
             // if (framesSkipped == MAX_FRAME_SKIP) {

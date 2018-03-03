@@ -15,6 +15,7 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -118,6 +119,7 @@ public class WabbitemuActivity extends Activity {
 				@Override
 				public void onFileLoaded(int errorCode) {
 					if (errorCode != 0) {
+						Log.e("Wabbitemu", String.format("Loading last ROM '%s' failed with error code %d", fileName, errorCode));
 						runnable.run();
 					}
 				}

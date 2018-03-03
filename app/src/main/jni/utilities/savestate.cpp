@@ -1399,7 +1399,6 @@ BOOL WriteSave(const TCHAR *fn, SAVESTATE_t* save, int compress) {
 
 		fputs(DETECT_CMP_STR, cfile);
 		switch(compress) {
-#ifdef ZLIB_WINAPI
 			case ZLIB_CMP:
 				{
 					fputc(ZLIB_CMP, cfile);
@@ -1407,7 +1406,6 @@ BOOL WriteSave(const TCHAR *fn, SAVESTATE_t* save, int compress) {
 					wasSuccessful = result == Z_OK;
 					break;
 				}
-#endif
 			default:
 				_putts(_T("Error bad compression format selected."));
 				break;
@@ -1445,7 +1443,6 @@ SAVESTATE_t* ReadSave(FILE *ifile) {
 		}
 		
 		switch(i) {
-#ifdef ZLIB_WINAPI
 			case ZLIB_CMP:
 				{
 					int error = inf(ifile, tmpFile);
@@ -1461,7 +1458,6 @@ SAVESTATE_t* ReadSave(FILE *ifile) {
 					ifile = tmpFile;
 					break;
 				}
-#endif
 			default:
 				fclose(tmpFile);
 				return NULL;

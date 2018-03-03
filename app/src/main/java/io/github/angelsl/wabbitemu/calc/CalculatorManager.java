@@ -225,9 +225,6 @@ public class CalculatorManager {
             final int errorCode = CalcInterface.LoadFile(mCurrentRomFile);
             final boolean wasSuccess = errorCode == 0;
             mCurrentModel = CalcModel.fromModel(CalcInterface.GetModel());
-            final String reportingString = wasSuccess ?
-                    "Loaded rom " + mCurrentModel :
-                    "Failed to load ROM at " + mCurrentRomFile;
             if (wasSuccess) {
                 unPauseCalc(PAUSE_KEY);
             }
