@@ -16,11 +16,11 @@ void load_settings(LPCALC lpCalc, LPVOID lParam) {
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    SetCacheDir
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_Initialize
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_Initialize
 		(JNIEnv *env, jclass classObj, jstring filePath) {
 	const char *path = (*env)->GetStringUTFChars(env, filePath, JNI_FALSE);
 	strcpy(cache_dir, path);
@@ -36,11 +36,11 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_Initialize
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    SaveCalcState
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT jboolean JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_SaveCalcState
+JNIEXPORT jboolean JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_SaveCalcState
 		(JNIEnv *env, jclass classObj, jstring filePath) {
 	const char *path = (*env)->GetStringUTFChars(env, filePath, JNI_FALSE);
 
@@ -55,11 +55,11 @@ JNIEXPORT jboolean JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_SaveCal
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    CreateRom
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_CreateRom
+JNIEXPORT jint JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_CreateRom
 	(JNIEnv *env, jclass classObj, jstring jOsPath, jstring jBootPath,
 			jstring jRomPath, jint model) {
 	const char *osPath = (*env)->GetStringUTFChars(env, jOsPath, JNI_FALSE);
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_CreateRom
 	return 0;
 }
 
-JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_LoadFile
+JNIEXPORT jint JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_LoadFile
 		(JNIEnv *env, jclass classObj, jstring filePath) {
 	const char *path = (*env)->GetStringUTFChars(env, filePath, JNI_FALSE);
 	TIFILE_t *tifile = importvar(path, TRUE);
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_LoadFile
 	return result;
 }
 
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_ResetCalc
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_ResetCalc
 		(JNIEnv *env, jclass classObj) {
 	if (!lpCalc) {
 		return;
@@ -132,21 +132,21 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_ResetCalc
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    RunCalc
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_RunCalcs
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_RunCalcs
   (JNIEnv *env, jclass classObj) {
 	calc_run_all();
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    PauseCalc
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_PauseCalc
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_PauseCalc
   (JNIEnv *env, jclass classObj) {
 	if (!lpCalc) {
 		return;
@@ -156,11 +156,11 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_PauseCalc
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    UnpauseCalc
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_UnpauseCalc
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_UnpauseCalc
   (JNIEnv *env, jclass classObj) {
 	if (!lpCalc) {
 		return;
@@ -169,7 +169,7 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_UnpauseCalc
 	lpCalc->running = TRUE;
 }
 
-JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_GetModel
+JNIEXPORT jint JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_GetModel
   (JNIEnv *env, jclass classObj) {
 	if (!lpCalc) {
 		return -1;
@@ -178,7 +178,7 @@ JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_GetModel
 	return lpCalc->model;
 }
 
-JNIEXPORT jlong JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_Tstates
+JNIEXPORT jlong JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_Tstates
   (JNIEnv *env, jclass classObj) {
 	if (!lpCalc) {
 		return -1;
@@ -187,21 +187,21 @@ JNIEXPORT jlong JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_Tstates
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    SetSpeedCalc
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_SetSpeedCalc
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_SetSpeedCalc
   (JNIEnv *env, jclass classObj, jint speed) {
 	lpCalc->speed = speed;
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    ClearKeys
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_ClearKeys
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_ClearKeys
   (JNIEnv *env, jclass classObj) {
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -211,11 +211,11 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_ClearKeys
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    PressKey
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_PressKey
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_PressKey
   (JNIEnv *env, jclass classObj, jint group, jint bit) {
 	if (!lpCalc) {
 		return;
@@ -225,22 +225,22 @@ JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_PressKey
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    SetAutoTurnOn
  * Signature: (B)V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_SetAutoTurnOn
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_SetAutoTurnOn
   (JNIEnv *env, jclass classObj, jboolean turnOn) {
 	auto_turn_on = turnOn ? TRUE : FALSE;
 }
 
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    ReleaseKey
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_ReleaseKey
+JNIEXPORT void JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_ReleaseKey
   (JNIEnv *env, jclass classObj, jint group, jint bit) {
 	if (!lpCalc) {
 		return;
@@ -275,11 +275,11 @@ void CopyColor(JNIEnv *env, int *screen, uint8_t *image) {
 }
 
 /*
- * Class:     com_Revsoft_Wabbitemu_CalcInterface
+ * Class:     io_github_angelsl_wabbitemu_CalcInterface
  * Method:    GetLCD
  * Signature: ()[B
  */
-JNIEXPORT jint JNICALL Java_com_Revsoft_Wabbitemu_calc_CalcInterface_GetLCD
+JNIEXPORT jint JNICALL Java_io_github_angelsl_wabbitemu_calc_CalcInterface_GetLCD
   (JNIEnv *env, jclass classObj, jobject intBuffer) {
 	if (!lpCalc) {
 		return FALSE;
