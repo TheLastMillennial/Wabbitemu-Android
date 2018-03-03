@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "io.github.angelsl.wabbitemu"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 39
+        versionName "1.06.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/jni/CMakeLists.txt"
+        }
+    }
+    packagingOptions {
+        pickFirst 'LICENSE.Apachev2'
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    // implementation project(':android-ColorPickerPreference-master')
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
+    implementation 'org.jsoup:jsoup:1.7.2'
+    implementation 'com.dorkbox:CabParser:2.9'
+}
