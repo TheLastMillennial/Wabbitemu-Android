@@ -16,6 +16,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast")
 
 set(WABBITEMU_SRC
     core/core.c
+    core/indexcb.c
+    core/alu.c
+    core/device.c
+    core/control.c
     interface/calc.c
     interface/state.c
     hardware/81hw.c
@@ -27,10 +31,6 @@ set(WABBITEMU_SRC
     hardware/link.c
     hardware/colorlcd.c
     hardware/keys.c
-    core/indexcb.c
-    core/alu.c
-    core/device.c
-    core/control.c
     utilities/var.c
     utilities/savestate.cpp
     utilities/sendfile.c

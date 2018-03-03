@@ -1,7 +1,7 @@
 #include "wabbitemujni.h"
 #include "calc.h"
 #include "linksendvar.h"
-#include "SendFile.h"
+#include "sendfile.h"
 #include "exportvar.h"
 
 static LPCALC lpCalc;

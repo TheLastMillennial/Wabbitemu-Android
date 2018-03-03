@@ -5,7 +5,6 @@
 #include "lcd.h"
 #include "colorlcd.h"
 #include "screenshothandle.h"
-#include "fileutilities.h"
 
 TCHAR pngext[5] = _T("png");
 TCHAR gifext[5] = _T("ext");

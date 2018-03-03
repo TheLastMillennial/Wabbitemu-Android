@@ -7,7 +7,6 @@ extern "C" {
 #include "83psehw.h"
 #include "link.h"
 #include "calc.h"
-#include "fileutilities.h"
 #include "savestate.h"
 #include "zlib.h"
 
