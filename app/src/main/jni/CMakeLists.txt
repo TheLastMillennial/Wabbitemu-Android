@@ -5,7 +5,7 @@ enable_language(CXX)
 find_library(LIBLOG log)
 find_library(LIBZ z)
 
-set(WABBITEMU_COMNFLAGS "-Ofast -flto -funroll-loops -fsigned-char -ffast-math -fno-signed-zeros -mfloat-abi=hard -mfpu=neon -mthumb -msoft-float -ggdb")
+set(WABBITEMU_COMNFLAGS "-Wno-unused-command-line-argument -Ofast -flto -funroll-loops -fsigned-char -ffast-math -fno-signed-zeros -ggdb")
 add_definitions(-DHIGH_SHADE_GIF -DVERBOSE -D_ANDROID)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${WABBITEMU_COMNFLAGS} -std=c11")
